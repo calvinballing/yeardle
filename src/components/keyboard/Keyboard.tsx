@@ -8,10 +8,14 @@ type Props = {
   onChar: (value: string) => void
   onDelete: () => void
   onEnter: () => void
+  onUp: () => void
+  onDown: () => void
+  onLeft: () => void
+  onRight: () => void
   guesses: string[][]
 }
 
-export const Keyboard = ({ onChar, onDelete, onEnter, guesses }: Props) => {
+export const Keyboard = ({ onChar, onDelete, onEnter, onLeft, onDown, onRight, onUp, guesses }: Props) => {
   const charStatuses = getStatuses(guesses)
 
   const onClick = (value: KeyValue) => {
@@ -19,30 +23,46 @@ export const Keyboard = ({ onChar, onDelete, onEnter, guesses }: Props) => {
       onEnter()
     } else if (value === 'DELETE') {
       onDelete()
+    } else if (value === 'RIGHT') {
+      onRight()
+    } else if (value === 'LEFT') {
+      onLeft()
+    } else if (value === 'UP') {
+      onUp()
+    } else if (value === 'DOWN') {
+      onDown()
     } else {
       onChar(value)
     }
   }
 
+
+
+
+
+
+
+
+
   useEffect(() => {
-    var currCell = $('td').first();
-
-    var c;
-
-    $('td').click(function () {
-      currCell = $(this);
-      var col = $(this).parent().children().index($(this)) + 1;
-      var row = $(this).parent().parent().children().index($(this).parent()) + 1;
-    });
 
     const listener = (e: KeyboardEvent) => {
       if (e.code === 'Enter') {
         onEnter()
       } else if (e.code === 'Backspace') {
         onDelete()
-      } else if (e.code === 'Backspace') {
+      } else if (e.code === 'ArrowRight') {
         // Right Arrow
-        onDelete()
+        onRight()
+      } else if (e.code === 'ArrowLeft') {
+        // Left Arrow
+        onLeft()
+      } else if (e.code === 'ArrowDown') {
+        // Down Arrow
+        onDown()
+      } else if (e.code === 'ArrowUp') {
+        // Up Arrow
+        onUp()
       }
       // Take away key event listener for now
       // else {
@@ -56,39 +76,34 @@ export const Keyboard = ({ onChar, onDelete, onEnter, guesses }: Props) => {
     return () => {
       window.removeEventListener('keyup', listener)
     }
-  }, [onEnter, onDelete, onChar])
+  }, [onEnter, onDelete, onChar, onLeft, onRight, onDown, onUp])
 
   return (
-    <div>
-      <div className="flex justify-center mb-1">
+      <div className="flex justify-center mb-1 flex-wrap self-center content-center items-center place-content-center">
+        <div className="content-center flex flex-row flex-wrap">
+
         {ORTHOGRAPHY.slice(0, Math.floor(ORTHOGRAPHY.length * 0.4)).map(
           (char) => (
             <Key value={char} onClick={onClick} status={charStatuses[char]} />
-          )
-        )}
-      </div>
-      <div className="flex justify-center mb-1">
+            )
+            )}
         {ORTHOGRAPHY.slice(
           Math.floor(ORTHOGRAPHY.length * 0.4),
           Math.floor(ORTHOGRAPHY.length * 0.74)
-        ).map((char) => (
-          <Key value={char} onClick={onClick} status={charStatuses[char]} />
-        ))}
-      </div>
-      <div className="flex justify-center">
-        <Key width={65.4} value="ENTER" onClick={onClick}>
-          Enter
-        </Key>
+          ).map((char) => (
+            <Key value={char} onClick={onClick} status={charStatuses[char]} />
+            ))}
+
         {ORTHOGRAPHY.slice(
           Math.floor(ORTHOGRAPHY.length * 0.74),
           ORTHOGRAPHY.length
-        ).map((char) => (
-          <Key value={char} onClick={onClick} status={charStatuses[char]} />
-        ))}
-        <Key width={65.4} value="DELETE" onClick={onClick}>
-          Delete
+          ).map((char) => (
+            <Key value={char} onClick={onClick} status={charStatuses[char]} />
+            ))}
+        <Key value="DELETE" onClick={onClick}>
+        🔙
         </Key>
       </div>
-    </div>
+            </div>
   )
 }

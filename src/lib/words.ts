@@ -23,10 +23,11 @@ const joke = JOKES[index % JOKES.length]
     question: joke.question,
     pre: joke.pre,
     post: joke.post,
+    fact: joke.fact,
     solutionIndex: index,
     tomorrow: nextday,
   }
-  
+
 }
 
-export const { solution, question, pre, post, solutionIndex, tomorrow } = getWordOfDay()
+export const { solution, question, pre, post, fact, solutionIndex, tomorrow } = getWordOfDay()

@@ -16,10 +16,12 @@ export const ORTHOGRAPHY = [
   'D',
   'F',
   'G',
+  '💀',
   'H',
   'J',
   'K',
   'L',
+  '💣',
   'Z',
   'X',
   'C',
@@ -27,6 +29,7 @@ export const ORTHOGRAPHY = [
   'B',
   'N',
   'M',
+  '🪦',
 ]
 
 if (CONFIG.normalization) {

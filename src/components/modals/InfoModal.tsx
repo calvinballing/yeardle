@@ -15,36 +15,36 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
-        <Cell value="J" status="correct" />
-        <Cell value="O" />
-        <Cell value="K" />
+        <Cell value="N" status="correct" />
         <Cell value="E" />
-        <Cell value="S" />
+        <Cell value="V" />
+        <Cell value="E" />
+        <Cell value="R" />
       </div>
       <p className="text-sm text-gray-500">
-        The letter J is in the punchline and in the correct spot.
+        The letter N is in the word and in the correct spot.
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
-        <Cell value="L" />
-        <Cell value="A" />
-        <Cell value="U" status="present" />
         <Cell value="G" />
-        <Cell value="H" />
+        <Cell value="O" />
+        <Cell value="N" status="present" />
+        <Cell value="N" />
+        <Cell value="A" />
       </div>
       <p className="text-sm text-gray-500">
-        The letter U is in the punchline but in the wrong spot.
+        The letter N is in the word once, but in the wrong spot.
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
-        <Cell value="F" />
-        <Cell value="U" />
-        <Cell value="N" />
-        <Cell value="N" />
-        <Cell value="Y" status="absent" />
+        <Cell value="G" />
+        <Cell value="I" />
+        <Cell value="V" />
+        <Cell value="E" />
+        <Cell value="U" status="absent" />
       </div>
       <p className="text-sm text-gray-500">
-        The letter Y is not in the punchline in any spot.
+        The letter U is not in the word in any spot.
       </p>
     </BaseModal>
   )

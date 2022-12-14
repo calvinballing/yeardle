@@ -10,10 +10,12 @@ type Props = {
 
 export const Alert = ({ isOpen, message, variant = 'warning' }: Props) => {
   const classes = classNames(
-    'fixed top-20 left-1/2 transform -translate-x-1/2 max-w-sm w-full shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden',
+    'fixed top-0 left-0 transform w-full h-full pointer-events-auto overflow-hidden place-content-center items-center place-items-center content-center flex justify-center content-center place-items-center place-conent-center self-center items-center',
     {
-      'bg-rose-200': variant === 'warning',
-      'bg-green-200 z-20': variant === 'success',
+      'bg-[#8a001e]': variant === 'warning',
+      'text-white': variant === 'warning',
+      'bg-[#31a348] z-20': variant === 'success',
+      'text-gray-900': variant === 'success',
     }
   )
 
@@ -29,11 +31,9 @@ export const Alert = ({ isOpen, message, variant = 'warning' }: Props) => {
       leaveTo="opacity-0"
     >
       <div className={classes}>
-        <div className="p-4">
-          <p className="text-sm text-center font-medium text-gray-900">
+          <p className="p-4 text-5xl font-bold text-center font-medium place-self-center self-center items-center whitespace-pre-line">
             {message}
           </p>
-        </div>
       </div>
     </Transition>
   )
