@@ -25,10 +25,23 @@ export const Keyboard = ({ onChar, onDelete, onEnter, guesses }: Props) => {
   }
 
   useEffect(() => {
+    var currCell = $('td').first();
+
+    var c;
+
+    $('td').click(function () {
+      currCell = $(this);
+      var col = $(this).parent().children().index($(this)) + 1;
+      var row = $(this).parent().parent().children().index($(this).parent()) + 1;
+    });
+
     const listener = (e: KeyboardEvent) => {
       if (e.code === 'Enter') {
         onEnter()
       } else if (e.code === 'Backspace') {
+        onDelete()
+      } else if (e.code === 'Backspace') {
+        // Right Arrow
         onDelete()
       }
       // Take away key event listener for now
