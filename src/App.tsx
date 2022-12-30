@@ -31,7 +31,7 @@ function App() {
   const [currentGuess, setCurrentGuess] = useState<Array<string>>([])
   const [isGameWon, setIsGameWon] = useState(false)
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false)
-  const [isNotEnoughLetters, setIsNotEnoughLetters] = useState(false)
+  //const [isNotEnoughLetters, setIsNotEnoughLetters] = useState(false)
   const [isWordNotFoundAlertOpen, setIsWordNotFoundAlertOpen] = useState(false)
   const [isGameLost, setIsGameLost] = useState(false)
   const [successAlert, setSuccessAlert] = useState('')
@@ -245,7 +245,13 @@ function App() {
         handleClose={() => setIsInfoModalOpen(false)}
       />
 
-      <Alert message="Not enough letters" isOpen={isNotEnoughLetters} />
+      <Alert
+        message="Not enough letters"
+        isOpen={
+          false
+          //isNotEnoughLetters
+        }
+      />
       <Alert message="Word not found" isOpen={isWordNotFoundAlertOpen} />
       <Alert
         message={`❌ The answer was ${pre} ${solution} ${post}.\n\n${fact}\n\nReturn to prior room.`}
