@@ -116,7 +116,7 @@ function App() {
       priorElement.focus()
     }
 
-    const death = ['💀', '💣', '🪦']
+    const death = ['💀', '💣', '💥']
     if (death.includes(priorElement.innerText)) {
       setTouchedBomb(true)
     }
@@ -138,7 +138,7 @@ function App() {
       nextElement.focus()
     }
 
-    const death = ['💀', '💣', '🪦']
+    const death = ['💀', '💣', '💥']
     if (death.includes(nextElement.innerText)) {
       setTouchedBomb(true)
     }
@@ -151,7 +151,7 @@ function App() {
       priorElement.focus()
     }
 
-    const death = ['💀', '💣', '🪦']
+    const death = ['💀', '💣', '💥']
     if (death.includes(priorElement.innerText)) {
       setTouchedBomb(true)
     }
@@ -164,7 +164,7 @@ function App() {
       nextElement.focus()
     }
 
-    const death = ['💀', '💣', '🪦']
+    const death = ['💀', '💣', '💥']
     if (death.includes(nextElement.innerText)) {
       setTouchedBomb(true)
     }

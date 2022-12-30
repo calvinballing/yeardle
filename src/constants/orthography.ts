@@ -29,7 +29,7 @@ export const ORTHOGRAPHY = [
   'B',
   'N',
   'M',
-  '🪦',
+  '💥',
 ]
 
 if (CONFIG.normalization) {
