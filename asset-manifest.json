@@ -1,19 +1,23 @@
 {
   "files": {
-    "main.css": "/yeardle/static/css/main.3c61a818.css",
-    "main.js": "/yeardle/static/js/main.608f47c5.js",
-    "static/js/787.c775681d.chunk.js": "/yeardle/static/js/787.c775681d.chunk.js",
+    "main.css": "/yeardle/static/css/main.add7cbdb.css",
+    "main.js": "/yeardle/static/js/main.5e9c22ee.js",
+    "static/js/787.46a83b35.chunk.js": "/yeardle/static/js/787.46a83b35.chunk.js",
     "static/media/BCSans-Bold.woff": "/yeardle/static/media/BCSans-Bold.252ecf87ea37c93b293c.woff",
     "static/media/BCSans-BoldItalic.woff": "/yeardle/static/media/BCSans-BoldItalic.73ed5137b2c4a42b754f.woff",
     "static/media/BCSans-Italic.woff": "/yeardle/static/media/BCSans-Italic.9c3be03a06d30a6ecff0.woff",
     "static/media/BCSans-Regular.woff": "/yeardle/static/media/BCSans-Regular.0079ea8e42d4e81a13d2.woff",
+    "static/media/chest.mp3": "/yeardle/static/media/chest.d2c70e268d99bc5d5baf.mp3",
+    "static/media/magicwrd.mp3": "/yeardle/static/media/magicwrd.5ec8ff0d2b0315e883ef.mp3",
+    "static/media/idiots.mp3": "/yeardle/static/media/idiots.5cf87f4a1ffbd47db2f2.mp3",
+    "static/media/wilhelm.mp3": "/yeardle/static/media/wilhelm.fd5183e68d4ca4e15fed.mp3",
     "index.html": "/yeardle/index.html",
-    "main.3c61a818.css.map": "/yeardle/static/css/main.3c61a818.css.map",
-    "main.608f47c5.js.map": "/yeardle/static/js/main.608f47c5.js.map",
-    "787.c775681d.chunk.js.map": "/yeardle/static/js/787.c775681d.chunk.js.map"
+    "main.add7cbdb.css.map": "/yeardle/static/css/main.add7cbdb.css.map",
+    "main.5e9c22ee.js.map": "/yeardle/static/js/main.5e9c22ee.js.map",
+    "787.46a83b35.chunk.js.map": "/yeardle/static/js/787.46a83b35.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3c61a818.css",
-    "static/js/main.608f47c5.js"
+    "static/css/main.add7cbdb.css",
+    "static/js/main.5e9c22ee.js"
   ]
 }
