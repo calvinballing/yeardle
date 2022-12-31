@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/yeardle/static/css/main.add7cbdb.css",
-    "main.js": "/yeardle/static/js/main.5e9c22ee.js",
+    "main.js": "/yeardle/static/js/main.509ed5db.js",
     "static/js/787.46a83b35.chunk.js": "/yeardle/static/js/787.46a83b35.chunk.js",
     "static/media/BCSans-Bold.woff": "/yeardle/static/media/BCSans-Bold.252ecf87ea37c93b293c.woff",
     "static/media/BCSans-BoldItalic.woff": "/yeardle/static/media/BCSans-BoldItalic.73ed5137b2c4a42b754f.woff",
@@ -13,11 +13,11 @@
     "static/media/wilhelm.mp3": "/yeardle/static/media/wilhelm.fd5183e68d4ca4e15fed.mp3",
     "index.html": "/yeardle/index.html",
     "main.add7cbdb.css.map": "/yeardle/static/css/main.add7cbdb.css.map",
-    "main.5e9c22ee.js.map": "/yeardle/static/js/main.5e9c22ee.js.map",
+    "main.509ed5db.js.map": "/yeardle/static/js/main.509ed5db.js.map",
     "787.46a83b35.chunk.js.map": "/yeardle/static/js/787.46a83b35.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.add7cbdb.css",
-    "static/js/main.5e9c22ee.js"
+    "static/js/main.509ed5db.js"
   ]
 }
