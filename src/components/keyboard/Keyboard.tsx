@@ -12,10 +12,11 @@ type Props = {
   onDown: () => void
   onLeft: () => void
   onRight: () => void
+  onLose: () => void
   guesses: string[][]
 }
 
-export const Keyboard = ({ onChar, onDelete, onEnter, onLeft, onDown, onRight, onUp, guesses }: Props) => {
+export const Keyboard = ({ onChar, onDelete, onEnter, onLeft, onDown, onRight, onUp, onLose, guesses }: Props) => {
   const charStatuses = getStatuses(guesses)
 
   const onClick = (value: KeyValue) => {
@@ -31,6 +32,8 @@ export const Keyboard = ({ onChar, onDelete, onEnter, onLeft, onDown, onRight, o
       onUp()
     } else if (value === 'DOWN') {
       onDown()
+    } else if (value === 'ESCAPE') {
+      onLose()
     } else {
       onChar(value)
     }
@@ -63,6 +66,9 @@ export const Keyboard = ({ onChar, onDelete, onEnter, onLeft, onDown, onRight, o
       } else if (e.code === 'ArrowUp') {
         // Up Arrow
         onUp()
+      } else if (e.code === 'Escape') {
+        // Lose on Escape key
+        onLose()
       }
       // Take away key event listener for now
       // else {
@@ -76,7 +82,7 @@ export const Keyboard = ({ onChar, onDelete, onEnter, onLeft, onDown, onRight, o
     return () => {
       window.removeEventListener('keyup', listener)
     }
-  }, [onEnter, onDelete, onChar, onLeft, onRight, onDown, onUp])
+  }, [onEnter, onDelete, onChar, onLeft, onRight, onDown, onUp, onLose])
 
   return (
       <div className="flex justify-center mb-1 flex-wrap self-center content-center items-center place-content-center">

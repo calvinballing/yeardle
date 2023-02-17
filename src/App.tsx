@@ -6,6 +6,17 @@ import { Keyboard } from './components/keyboard/Keyboard'
 import React from 'react'
 
 import CountDownTimer from './components/CountDownTimer'
+
+//import { BoopButton } from './components/SoundButton'
+
+//import Sound from 'react-sound';
+import Success from './sounds/chest.mp3'
+import MagicWord from './sounds/magicwrd.mp3'
+import Wilhelm from './sounds/wilhelm.mp3'
+import Idiots from './sounds/idiots.mp3'
+
+import UIfx from 'uifx'
+
 import { InfoModal } from './components/modals/InfoModal'
 import $ from 'jquery'
 import {
@@ -39,6 +50,9 @@ function App() {
   const handleRanOutOfTime = (
     didRunOutOfTime: boolean | ((prevState: boolean) => boolean)
   ) => {
+    if (!ranOutOfTime && !isGameWon) {
+      magicWord.play()
+    }
     setRanOutOfTime(didRunOutOfTime)
   }
   const [ranOutOfTime, setRanOutOfTime] = React.useState(false)
@@ -60,6 +74,26 @@ function App() {
     }
 
     return loaded.guesses
+  })
+
+  const success = new UIfx(Success, {
+    volume: 0.4, // number between 0.0 ~ 1.0
+    throttleMs: 100,
+  })
+
+  const wilhelm = new UIfx(Wilhelm, {
+    volume: 0.4, // number between 0.0 ~ 1.0
+    throttleMs: 100,
+  })
+
+  const magicWord = new UIfx(MagicWord, {
+    volume: 0.4, // number between 0.0 ~ 1.0
+    throttleMs: 100,
+  })
+
+  const idiots = new UIfx(Idiots, {
+    volume: 0.4, // number between 0.0 ~ 1.0
+    throttleMs: 100,
   })
 
   window.onload = function () {
@@ -118,6 +152,7 @@ function App() {
 
     const death = ['💀', '💣', '💥']
     if (death.includes(priorElement.innerText)) {
+      wilhelm.play()
       setTouchedBomb(true)
     }
   }
@@ -140,6 +175,7 @@ function App() {
 
     const death = ['💀', '💣', '💥']
     if (death.includes(nextElement.innerText)) {
+      wilhelm.play()
       setTouchedBomb(true)
     }
   }
@@ -153,6 +189,7 @@ function App() {
 
     const death = ['💀', '💣', '💥']
     if (death.includes(priorElement.innerText)) {
+      wilhelm.play()
       setTouchedBomb(true)
     }
   }
@@ -166,8 +203,16 @@ function App() {
 
     const death = ['💀', '💣', '💥']
     if (death.includes(nextElement.innerText)) {
+      wilhelm.play()
       setTouchedBomb(true)
     }
+  }
+
+  const onLose = () => {
+    const focused = document.activeElement as HTMLElement
+    focused.focus()
+    idiots.play()
+    setTouchedBomb(true)
   }
 
   const onEnter = () => {
@@ -204,10 +249,12 @@ function App() {
       setCurrentGuess([])
 
       if (winningWord) {
+        success.play()
         return setIsGameWon(true)
       }
 
       if (guesses.length === CONFIG.tries - 1) {
+        magicWord.play()
         setIsGameLost(true)
       }
     }
@@ -234,6 +281,7 @@ function App() {
             onDown={onDown}
             onLeft={onLeft}
             onRight={onRight}
+            onLose={onLose}
             guesses={guesses}
           />
         </div>
@@ -264,7 +312,7 @@ function App() {
         variant="success"
       />
       <Alert
-        message={`⏱️ You ran out of time.\n\n${fact}\n\nReturn to prior room.`}
+        message={`⏱️ You ran out of time.\n\nThe answer was ${solution}\n\n${fact}\n\nReturn to prior room.`}
         isOpen={ranOutOfTime}
       />
 
